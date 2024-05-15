@@ -15,9 +15,8 @@
 									  smtx:XamlDisplayExtensions.Header="NavigationView"
 									  smtx:XamlDisplayExtensions.IgnorePath="XamlDisplay\StackPanel">
 						<NavigationView x:Name="DefaultNav" Height="Auto"
-                                            PaneDisplayMode="Left" SelectionFollowsFocus="Enabled"
-                                            IsTabStop="False" IsBackButtonVisible="Collapsed"
-											SelectionChanged="DefaultNavigationView_SelectionChanged">
+                                        PaneDisplayMode="Left" IsBackButtonVisible="Collapsed"
+										SelectionChanged="DefaultNavigationView_SelectionChanged">
 							<NavigationView.MenuItems>
 								<NavigationViewItem Content="Item1" Tag="NavigationViewSample_NestedPage1" />
 								<NavigationViewItem Content="Item2" Tag="NavigationViewSample_NestedPage2" />

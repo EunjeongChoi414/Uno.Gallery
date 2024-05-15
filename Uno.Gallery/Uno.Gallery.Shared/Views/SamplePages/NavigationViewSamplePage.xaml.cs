@@ -21,7 +21,6 @@ namespace Uno.Gallery.Views.Samples
 		{
 			_defaultNav = SamplePageLayout.GetSampleChild<NavigationView>(Design.Material, "DefaultNav");
 			_defaultNav.SelectedItem = _defaultNav.MenuItems.OfType<NavigationViewItem>().First();
-
 		}
 
 		private void DefaultNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -34,8 +33,8 @@ namespace Uno.Gallery.Views.Samples
 			else
 			{
 				var selectedItem = (NavigationViewItem)args.SelectedItem;
-				string pageName = ((string)selectedItem.Tag);
-				sender.Header = "Sample Page " + pageName.Substring(pageName.Length - 1);
+				string pageName = (string)selectedItem.Tag;
+				sender.Header = "Sample Page " + pageName[^1..];
 				var pagePath = "Uno.Gallery.Views.NestedPages." + pageName;
 				frame.Navigate(Type.GetType(pagePath));
 			}
