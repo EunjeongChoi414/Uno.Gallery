@@ -4,25 +4,61 @@
 	  xmlns:local="using:Uno.Gallery"
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  xmlns:smtx="using:ShowMeTheXAML"
 	  mc:Ignorable="d">
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<local:SamplePageLayout>
+		<local:SamplePageLayout x:Name="SamplePageLayout">
 			<local:SamplePageLayout.MaterialTemplate>
+				<DataTemplate>
+					<smtx:XamlDisplay UniqueKey="NavigationViewSamplePage_Material_NavigationView"
+									  smtx:XamlDisplayExtensions.Header="NavigationView"
+									  smtx:XamlDisplayExtensions.IgnorePath="XamlDisplay\StackPanel">
+						<NavigationView x:Name="DefaultNav" Height="Auto"
+                                            PaneDisplayMode="Left" SelectionFollowsFocus="Enabled"
+                                            IsTabStop="False" IsBackButtonVisible="Collapsed"
+											SelectionChanged="DefaultNavigationView_SelectionChanged">
+							<NavigationView.MenuItems>
+								<NavigationViewItem Content="Item1" Tag="NavigationViewSample_NestedPage1" />
+								<NavigationViewItem Content="Item2" Tag="NavigationViewSample_NestedPage2" />
+								<NavigationViewItem Content="Item3" Tag="NavigationViewSample_NestedPage3" />
+							</NavigationView.MenuItems>
+							<Frame x:Name="DefaultNav_ContentFrame" />
+						</NavigationView>
+
+					</smtx:XamlDisplay>
+				</DataTemplate>
+			</local:SamplePageLayout.MaterialTemplate>
+			<local:SamplePageLayout.CupertinoTemplate>
 				<DataTemplate>
 					<StackPanel Margin="0,16,0,0" Spacing="16">
 
 						<!-- NavigationView Text -->
 						<TextBlock Text="The NavigationView control is the expandable and collapsible menu that you see in the top-left of your screen."
-								   Style="{StaticResource BodyMedium}" />
-						<TextBlock Text="The NavigationView that you see in this application uses a material style that comes from the Uno.Material library. It also supports swipe gestures on iOS and Android."
-								   Style="{StaticResource BodyMedium}"/>
+								   Style="{StaticResource CupertinoBody}" />
+						<TextBlock Text="The NavigationView that you see in this application uses a Cupertino style that comes from the Uno.Cupertino library. It also supports swipe gestures on iOS and Android."
+								   Style="{StaticResource CupertinoBody}"/>
 						<TextBlock Text="Check how it adjusts itself for mobile form factors!"
-								   Style="{StaticResource BodyMedium}" />
-						
+								   Style="{StaticResource CupertinoBody}" />
+
 					</StackPanel>
 				</DataTemplate>
-			</local:SamplePageLayout.MaterialTemplate>
+			</local:SamplePageLayout.CupertinoTemplate>
+			<local:SamplePageLayout.FluentTemplate>
+				<DataTemplate>
+					<StackPanel Margin="0,16,0,0" Spacing="16">
+
+						<!-- NavigationView Text -->
+						<TextBlock Text="The NavigationView control is the expandable and collapsible menu that you see in the top-left of your screen."
+								Style="{StaticResource BodyMedium}" />
+						<TextBlock Text="The NavigationView that you see in this application uses a Fluent style that comes from the Uno.FluentUI library. It also supports swipe gestures on iOS and Android."
+								Style="{StaticResource BodyMedium}"/>
+						<TextBlock Text="Check how it adjusts itself for mobile form factors!"
+								Style="{StaticResource BodyMedium}" />
+
+					</StackPanel>
+				</DataTemplate>
+			</local:SamplePageLayout.FluentTemplate>
 		</local:SamplePageLayout>
 	</Grid>
 </Page>
