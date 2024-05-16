@@ -10,6 +10,7 @@ namespace Uno.Gallery.Views.Samples
 	public sealed partial class NavigationViewSamplePage : Page
 	{
 		private NavigationView _defaultNav;
+		private NavigationView _topNav;
 
 		public NavigationViewSamplePage()
 		{
@@ -21,11 +22,31 @@ namespace Uno.Gallery.Views.Samples
 		{
 			_defaultNav = SamplePageLayout.GetSampleChild<NavigationView>(Design.Material, "DefaultNav");
 			_defaultNav.SelectedItem = _defaultNav.MenuItems.OfType<NavigationViewItem>().First();
+
+			_topNav = SamplePageLayout.GetSampleChild<NavigationView>(Design.Material, "TopNav");
+			_topNav.SelectedItem = _defaultNav.MenuItems.OfType<NavigationViewItem>().First();
 		}
 
 		private void DefaultNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
 		{
 			Frame frame = (Frame)sender.FindName("DefaultNav_ContentFrame");
+			if (args.IsSettingsSelected)
+			{
+				frame.Navigate(typeof(NavigationViewSample_SettingsPage));
+			}
+			else
+			{
+				var selectedItem = (NavigationViewItem)args.SelectedItem;
+				string pageName = (string)selectedItem.Tag;
+				sender.Header = "Sample Page " + pageName[^1..];
+				var pagePath = "Uno.Gallery.Views.NestedPages." + pageName;
+				frame.Navigate(Type.GetType(pagePath));
+			}
+		}
+
+		private void TopNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+		{
+			Frame frame = (Frame)sender.FindName("TopNav_ContentFrame");
 			if (args.IsSettingsSelected)
 			{
 				frame.Navigate(typeof(NavigationViewSample_SettingsPage));
