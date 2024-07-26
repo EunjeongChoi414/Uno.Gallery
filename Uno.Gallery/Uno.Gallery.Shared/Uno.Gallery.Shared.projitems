@@ -183,6 +183,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Selectors\NeumorphicTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NestedPages\NavigationViewSample_NestedPage4.xaml.cs">
+      <DependentUpon>NavigationViewSample_NestedPage4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NestedPages\NavigationViewSample_NestedPage5.xaml.cs">
+      <DependentUpon>NavigationViewSample_NestedPage5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NestedPages\NavigationViewSample_NestedPage6.xaml.cs">
+      <DependentUpon>NavigationViewSample_NestedPage6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\SamplePages\DataGridSamplePage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +199,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="$(MSBuildThisFileDirectory)Views\NestedPages\NavigationViewSample_NestedPage5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\NestedPages\NavigationViewSample_NestedPage6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\SamplePages\DataGridSamplePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,7 +215,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </_Globbled_Page>
-    <Page Include="@(_Globbled_Page)" />
+    <Page Include="@(_Globbled_Page)">
+      <SubType>Designer</SubType>
+    </Page>
     <_Globbed_Compile Include="$(MSBuildThisFileDirectory)**/*.xaml.cs" Exclude="@(Compile)">
       <DependentUpon>%(Filename)</DependentUpon>
     </_Globbed_Compile>

@@ -14,9 +14,14 @@
     <_Globbed_Compile Remove="Converters\DateTimeToDateTimeOffsetConverter.cs" />
     <_Globbed_Compile Remove="Converters\FromValueToStringConverter.cs" />
     <_Globbed_Compile Remove="Entities\Data\Plant.cs" />
+    <_Globbed_Compile Remove="Views\NestedPages\NavigationViewSample_NestedPage4.xaml.cs" />
+    <_Globbed_Compile Remove="Views\NestedPages\NavigationViewSample_NestedPage5.xaml.cs" />
+    <_Globbed_Compile Remove="Views\NestedPages\NavigationViewSample_NestedPage6.xaml.cs" />
     <_Globbed_Compile Remove="Views\SamplePages\DataGridSamplePage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <_Globbled_Page Remove="Views\NestedPages\NavigationViewSample_NestedPage5.xaml" />
+    <_Globbled_Page Remove="Views\NestedPages\NavigationViewSample_NestedPage6.xaml" />
     <_Globbled_Page Remove="Views\SamplePages\DataGridSamplePage.xaml" />
   </ItemGroup>
 </Project>

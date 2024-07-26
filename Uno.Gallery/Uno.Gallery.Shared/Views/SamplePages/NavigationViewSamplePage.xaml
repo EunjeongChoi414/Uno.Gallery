@@ -85,6 +85,33 @@
 								<Frame x:Name="TopNav_ContentFrame" />
 							</NavigationView>
 						</smtx:XamlDisplay>
+
+						<!-- Hierarchical NavigationView -->
+						<smtx:XamlDisplay UniqueKey="NavigationViewSamplePage_Fluent_NavigationView_Hierarchy"
+							  smtx:XamlDisplayExtensions.Header="Hierarchical NavigationView"
+							  smtx:XamlDisplayExtensions.IgnorePath="XamlDisplay">
+							<NavigationView x:Name="HierarchicalNav" Height="460"
+                                        PaneDisplayMode="Left" 
+                                        IsTabStop="False" 
+                                        SelectionChanged="HierarchicalNavigationView_SelectionChanged">
+								<NavigationView.MenuItems>
+									<NavigationViewItem Content="Home" ToolTipService.ToolTip="Home" Tag="NavigationViewSample_NestedPage1"/>
+									<NavigationViewItem Content="Account" ToolTipService.ToolTip="Account" Tag="NavigationViewSample_NestedPage2">
+										<NavigationViewItem.MenuItems>
+											<NavigationViewItem Content="Mail" ToolTipService.ToolTip="Mail" Tag="NavigationViewSample_NestedPage3"/>
+											<NavigationViewItem Content="Calendar" ToolTipService.ToolTip="Calendar" Tag="NavigationViewSample_NestedPage4"/>
+										</NavigationViewItem.MenuItems>
+									</NavigationViewItem>
+									<NavigationViewItem Content="Document options" ToolTipService.ToolTip="Document options" SelectsOnInvoked="False">
+										<NavigationViewItem.MenuItems>
+											<NavigationViewItem Content="Create new" ToolTipService.ToolTip="Create new" Tag="NavigationViewSample_NestedPage5"/>
+											<NavigationViewItem Content="Upload file" ToolTipService.ToolTip="Upload file" Tag="NavigationViewSample_NestedPage6"/>
+										</NavigationViewItem.MenuItems>
+									</NavigationViewItem>
+								</NavigationView.MenuItems>
+								<Frame x:Name="HierarchicalNav_ContentFrame" />
+							</NavigationView>
+						</smtx:XamlDisplay>
 					</StackPanel>
 				</DataTemplate>
 			</local:SamplePageLayout.FluentTemplate>
